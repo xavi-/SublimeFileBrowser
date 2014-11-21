@@ -134,7 +134,8 @@ class DiredCommand(WindowCommand):
                 self.window.show_quick_panel(folders, self._show_folder)
                 return
         if immediate:
-            show(self.window, path, single_pane=single_pane, other_group=other_group)
+            if ST3: show(self.window, path, single_pane=single_pane, other_group=other_group)
+            else: show(self.window, path, single_pane=single_pane)
         else:
             prompt.start('Directory:', self.window, path, self._show)
 
